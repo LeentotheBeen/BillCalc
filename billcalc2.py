@@ -1,17 +1,13 @@
 def tip_calc(bill, tip_per):
-    tip_amt = bill * float(tip_per)/100
-    return tip_amt
+    return bill * float(tip_per)/100
 
 def total_bill(bill, tip_per):
-    tip_amt = bill * float(tip_per)/100
-    bill_amt = tip_amt + bill
-    return bill_amt
+    tip_amt = tip_calc(bill, tip_per)
+    return tip_amt + bill
 
 def splitsies(bill, tip_per, party):
-    tip_amt = bill * float(tip_per)/100
-    bill_amt = tip_amt + bill
-    split_amt = bill_amt / party
-    return split_amt
+    bill_amt = total_bill(bill, tip_per)
+    return bill_amt / party
 
 def main():
     user_choice = int(raw_input("Pick a number: 1 - calculate tip, 2 - split the bill"))
